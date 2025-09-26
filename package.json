@@ -1,0 +1,26 @@
+{
+  "name": "pi-estimate",
+  "version": "1.0.0",
+  "description": "A Node.js program to estimate π using the Leibniz formula",
+  "main": "pi_estimate.js",
+  "scripts": {
+    "start": "node pi_estimate.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "pi",
+    "estimation",
+    "mathematics",
+    "nodejs"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "devDependencies": {
+    "jest": "^30.1.3"
+  }
+}
