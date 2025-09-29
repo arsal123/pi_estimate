@@ -20,6 +20,11 @@ npm start
 node pi_estimate.js
 ```
 
+## Testing
+```bash
+npm test
+```
+
 ## How it works
 
 The program uses the Leibniz formula for π:

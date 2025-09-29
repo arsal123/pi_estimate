@@ -4,7 +4,7 @@ function estimatePi(iterations = 20, verbose = true) {
   const exactPi = Math.PI;
 
   if (verbose) {
-    console.log(`Estimating pi using the Leibniz formula over ${iterations} iterations:`);
+    console.log(`Estimating pi using the Taylor series over ${iterations} iterations:`);
     console.log("-----------------------------------------------------------------");
   }
 
@@ -41,14 +41,11 @@ function calculateLeibnizTerm(n) {
 }
 
 // Export functions for testing
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = {
-    estimatePi,
-    calculateLeibnizTerm
-  };
-}
+export default estimatePi;
+export { calculateLeibnizTerm };
 
 // Call the function to run the program (only if not being imported)
-if (require.main === module) {
+// In ES modules, we check if the current module is the main module using import.meta.url
+if (import.meta.url === `file://${process.argv[1]}`) {
   estimatePi();
 }

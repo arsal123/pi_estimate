@@ -1,11 +1,12 @@
 {
   "name": "pi-estimate",
   "version": "1.0.0",
+  "type": "module",
   "description": "A Node.js program to estimate π using the Leibniz formula",
   "main": "pi_estimate.js",
   "scripts": {
     "start": "node pi_estimate.js",
-    "test": "jest",
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
   },
