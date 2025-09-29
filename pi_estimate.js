@@ -35,7 +35,7 @@ function estimatePi(iterations = 20, verbose = true) {
   return piEstimate;
 }
 
-// Helper function to calculate a single term of the Leibniz series
+// Helper function to calculate a single term of the Taylor series with Leibniz formula
 function calculateLeibnizTerm(n) {
   return 4 * (Math.pow(-1, n) / (2 * n + 1));
 }
