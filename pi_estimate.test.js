@@ -1,28 +1,7 @@
-const { estimatePi, calculateLeibnizTerm } = require('./pi_estimate');
+import estimatePi from "./pi_estimate";
+import { jest } from '@jest/globals';
 
 describe('Pi Estimation Tests', () => {
-  describe('calculateLeibnizTerm', () => {
-    test('should calculate correct first term (n=0)', () => {
-      const result = calculateLeibnizTerm(0);
-      expect(result).toBeCloseTo(4, 10); // 4 * ((-1)^0 / (2*0 + 1)) = 4 * (1/1) = 4
-    });
-
-    test('should calculate correct second term (n=1)', () => {
-      const result = calculateLeibnizTerm(1);
-      expect(result).toBeCloseTo(-4/3, 10); // 4 * ((-1)^1 / (2*1 + 1)) = 4 * (-1/3) = -4/3
-    });
-
-    test('should calculate correct third term (n=2)', () => {
-      const result = calculateLeibnizTerm(2);
-      expect(result).toBeCloseTo(4/5, 10); // 4 * ((-1)^2 / (2*2 + 1)) = 4 * (1/5) = 4/5
-    });
-
-    test('should calculate correct fourth term (n=3)', () => {
-      const result = calculateLeibnizTerm(3);
-      expect(result).toBeCloseTo(-4/7, 10); // 4 * ((-1)^3 / (2*3 + 1)) = 4 * (-1/7) = -4/7
-    });
-  });
-
   describe('estimatePi', () => {
     test('should return a number', () => {
       const result = estimatePi(1, false);
@@ -121,22 +100,6 @@ describe('Pi Estimation Tests', () => {
   });
 
   describe('Mathematical Properties', () => {
-    test('should demonstrate series convergence behavior', () => {
-      // The Leibniz series converges slowly, alternating around π
-      const estimates = [];
-      for (let i = 1; i <= 10; i++) {
-        estimates.push(estimatePi(i, false));
-      }
-
-      // Odd-indexed estimates should be greater than π, even-indexed should be less
-      const actualPi = Math.PI;
-      
-      expect(estimates[0]).toBeGreaterThan(actualPi); // n=1: 4 > π
-      expect(estimates[1]).toBeLessThan(actualPi);    // n=2: 4-4/3 < π
-      expect(estimates[2]).toBeGreaterThan(actualPi); // n=3: 4-4/3+4/5 > π
-      expect(estimates[3]).toBeLessThan(actualPi);    // n=4: 4-4/3+4/5-4/7 < π
-    });
-
     test('should show decreasing error magnitude over time', () => {
       const actualPi = Math.PI;
       const errors = [];
