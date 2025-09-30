@@ -1,4 +1,4 @@
-// Function to estimate pi using the Taylor Series Leibniz formula
+// Function to estimate pi using the Taylor Series 
 function estimatePi(iterations = 20, verbose = true) {
   let piEstimate = 0;
   const exactPi = Math.PI;
@@ -8,12 +8,12 @@ function estimatePi(iterations = 20, verbose = true) {
     console.log("-----------------------------------------------------------------");
   }
 
-  // The Leibniz formula is: pi/4 = 1 - 1/3 + 1/5 - 1/7 + ...
+  // The formula is: pi/4 = 1 - 1/3 + 1/5 - 1/7 + ...
   // This is equivalent to: pi = 4 * (1 - 1/3 + 1/5 - 1/7 + ...)
   // The general term is 4 * ((-1)^n / (2n + 1))
   for (let n = 0; n < iterations; n++) {
     // Calculate the current term of the series
-    const term = calculateLeibnizTerm(n);
+    const term = calculateTerm(n);
     piEstimate += term;
 
     if (verbose) {
@@ -35,14 +35,13 @@ function estimatePi(iterations = 20, verbose = true) {
   return piEstimate;
 }
 
-// Helper function to calculate a single term of the Taylor series with Leibniz formula
-function calculateLeibnizTerm(n) {
+// Helper function to calculate a single term 
+function calculateTerm(n) {
   return 4 * (Math.pow(-1, n) / (2 * n + 1));
 }
 
 // Export functions for testing
 export default estimatePi;
-export { calculateLeibnizTerm };
 
 // Call the function to run the program (only if not being imported)
 // In ES modules, we check if the current module is the main module using import.meta.url
